@@ -1,0 +1,7 @@
+/Source/vendor/
+/Source/composer.lock
+/.idea/
+/Sandbox/Synopsis.phar
+/.htaccess
+/.phpunit.result.cache
+/Synopsis.phar
