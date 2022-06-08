@@ -21,6 +21,17 @@ const Application = {
             }, function () {
 
             });
+        },
+
+        save: function (key) {
+            API.request('Stylo.Save', {
+                'key': key,
+                'content': $('#cont').val()
+            }, function (data) {
+                alert('Success!');
+            }, function () {
+
+            });
         }
     }
 };

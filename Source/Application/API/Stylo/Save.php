@@ -10,7 +10,7 @@ use Application\Services\Stylo as StyloService;
  *
  * @todo: add tests
  */
-class Render extends Method
+class Save extends Method
 {
     /**
      * @inheritDoc
@@ -18,13 +18,11 @@ class Render extends Method
     public function get(): array
     {
         $key = $this->getParameter('key');
-        $content = StyloService::get($key);
+        $content = $this->getParameter('content');
+
+        StyloService::set($key, $content);
 
         return [
-            'right' => $this->render(__DIR__ . '/Right.tpl', [
-                'content' => $content,
-                'key' => $key
-            ])
         ];
     }
 }
