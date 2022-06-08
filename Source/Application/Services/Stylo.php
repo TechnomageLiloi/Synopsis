@@ -19,6 +19,13 @@ class Stylo
             "[text and links]";
 
         $path = self::keyToPath($key);
+
+        $parent = dirname($path);
+        if(!is_dir($parent))
+        {
+            mkdir($parent, 0777, true);
+        }
+
         file_put_contents($path, $content);
     }
 
