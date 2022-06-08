@@ -3,7 +3,7 @@
 namespace Application\API\Stylo;
 
 use Application\API\Method;
-use Application\Services\Story as StoryService;
+use Application\Services\Stylo as StyloService;
 
 /**
  * API method: Atom.Render
@@ -18,10 +18,11 @@ class Render extends Method
     public function get(): array
     {
         $key = $this->getParameter('key');
+        $content = StyloService::get($key);
 
         return [
-            'render' => $this->render(__DIR__ . '/Render.tpl', [
-
+            'right' => $this->render(__DIR__ . '/Right.tpl', [
+                'content' => $content
             ])
         ];
     }

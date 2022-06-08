@@ -10,5 +10,17 @@ const Application = {
         }, function () {
 
         });
+    },
+
+    Stylo: {
+        render: function (key) {
+            API.request('Stylo.Render', {
+                'key': key
+            }, function (data) {
+                $('#side-right').html(data.response.right);
+            }, function () {
+
+            });
+        }
     }
 };
