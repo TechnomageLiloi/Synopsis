@@ -18,6 +18,7 @@ const Application = {
                 'key': key
             }, function (data) {
                 $('#side-right').html(data.response.right);
+                $('#side-left').html(data.response.left);
             }, function () {
 
             });
@@ -28,6 +29,7 @@ const Application = {
                 'key': key,
                 'content': $('#cont').val()
             }, function (data) {
+                Application.Stylo.render(key);
                 alert('Success!');
             }, function () {
 
