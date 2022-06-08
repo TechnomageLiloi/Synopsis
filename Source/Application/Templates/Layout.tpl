@@ -10,7 +10,7 @@
     <style>
         <?php echo file_get_contents(ROOT_DIR . "/Application/General.css"); ?>
     </style>
-    <title>Synopsis - <?php echo $story->title; ?></title>
+    <title>Synopsis</title>
 </head>
 <body>
     <div id="content">

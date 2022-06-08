@@ -14,5 +14,5 @@
     </table>
 </div>
 <script>
-
+    Application.Stylo.render('Story');
 </script>

@@ -4,7 +4,7 @@ include __DIR__ . '/Synopsis.phar';
 
 use Rune\Services\Manager as ConfigurationManager;
 $config = new ConfigurationManager([
-    'story' => __DIR__ . '/Story.stylo'
+    'root' => __DIR__
 ]);
 
 $application = new Application\Application($config);

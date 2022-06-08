@@ -10,5 +10,30 @@ const Application = {
         }, function () {
 
         });
+    },
+
+    Stylo: {
+        render: function (key) {
+            API.request('Stylo.Render', {
+                'key': key
+            }, function (data) {
+                $('#side-right').html(data.response.right);
+                $('#side-left').html(data.response.left);
+            }, function () {
+
+            });
+        },
+
+        save: function (key) {
+            API.request('Stylo.Save', {
+                'key': key,
+                'content': $('#cont').val()
+            }, function (data) {
+                Application.Stylo.render(key);
+                alert('Success!');
+            }, function () {
+
+            });
+        }
     }
 };
