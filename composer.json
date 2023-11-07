@@ -1,0 +1,21 @@
+{
+    "name": "technomage-liloi/synopsis",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "technomage-liloi/judex": "dev-main",
+        "technomage-liloi/rune-api": "dev-main",
+        "technomage-liloi/rune-config": "dev-main",
+        "technomage-liloi/rune-framework": "dev-main",
+        "technomage-liloi/rune-tools": "dev-main",
+        "technomage-liloi/stylo": "dev-main",
+        "ext-json": "*",
+        "ext-mysqli": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Liloi\\Synopsis\\": ["Engine", "Tests"]
+        }
+    }
+}

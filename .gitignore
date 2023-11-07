@@ -5,3 +5,5 @@
 /.htaccess
 /.phpunit.result.cache
 /Synopsis.phar
+/vendor/
+/composer.lock

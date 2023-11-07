@@ -15,13 +15,6 @@
     <!-- include spec files here... -->
     <script src="/Tests/CheckTest.js"></script>
 
-    <!-- Nest: Interstate60 -->
-    <script src="/Admin/Interstate60/Tests/CheckTest.js"></script>
-    <script src="/Admin/Interstate60/Tests/I60Test.js"></script>
-
-    <script src="/Admin/Interstate60/Engine/API/Requests.js"></script>
-    <script src="/Admin/Interstate60/Engine/API/Application/Requests.js"></script>
-
 </head>
 
 <div style="background-color: black; color: white;padding: 5px;margin: 0px;">
