@@ -18,14 +18,13 @@
         <title>Synopsis</title>
     </head>
     <body>
-        <?php if($admin): ?>
-            <div id="head">
-                <!--<a href="javascript:void(0)" class="butn" onclick="Rune.Plan.show();">Plan</a>-->
-            </div>
-        <?php endif; ?>
+        <div id="head">
+            <!--<a href="javascript:void(0)" class="butn" onclick="Rune.Plan.show();">Plan</a>-->
+        </div>
+        <hr/>
         <div id="page">
             <script>
-                Rune.Atoms.show();
+                //Rune.Atoms.show();
             </script>
         </div>
     </body>
