@@ -25,7 +25,7 @@
         <hr/>
         <div id="page">
             <script>
-                //Rune.Atoms.show();
+                Synopsis.Notes.show();
             </script>
         </div>
     </body>

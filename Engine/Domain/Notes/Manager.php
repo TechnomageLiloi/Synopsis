@@ -16,8 +16,7 @@ class Manager extends DomainManager
         return self::getConfig()->get('table');
     }
 
-    // @todo: rise this method to more abstract level.
-    public static function create(string $keyNote): void
+    public static function create(string $keyNote): array
     {
         $name = self::getTableName();
 
@@ -41,7 +40,7 @@ class Manager extends DomainManager
 
         if(!$row)
         {
-            throw new \Exception('Not found.');
+            $row = self::create($keyNote);
         }
 
         return Entity::create($row);
