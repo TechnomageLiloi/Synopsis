@@ -1,0 +1,75 @@
+<?php
+
+namespace Liloi\Synopsis\Domain\Notes;
+
+use Liloi\Synopsis\Domain\Manager as DomainManager;
+
+class Manager extends DomainManager
+{
+    /**
+     * Get table name.
+     *
+     * @return string
+     */
+    public static function getTableName(): string
+    {
+        return self::getConfig()->get('table');
+    }
+
+    // @todo: rise this method to more abstract level.
+    public static function create(string $keyNote): void
+    {
+        $name = self::getTableName();
+
+        self::getAdapter()->insert($name, [
+            'key_note' => $keyNote,
+            'title' => 'Enter the note title',
+            'status' => Statuses::ENABLED,
+            'note' => '// Enter the note',
+            'position' => '1',
+        ]);
+    }
+
+    public static function load(string $keyNote): Entity
+    {
+        $name = self::getTableName();
+
+        $row = self::getAdapter()->getRow(sprintf(
+            'select * from %s where key_note="%s";',
+            $name, $keyNote
+        ));
+
+        if(!$row)
+        {
+            throw new \Exception('Not found.');
+        }
+
+        return Entity::create($row);
+    }
+
+    public static function save(Entity $entity): void
+    {
+        $name = self::getTableName();
+        $data = $entity->get();
+        unset($data['key_note']);
+
+        self::update($name, $data, sprintf('key_note="%s"', $entity->getKey()));
+    }
+
+    public static function remove(Entity $entity): void
+    {
+        $name = self::getTableName();
+        self::getAdapter()->delete($name, sprintf('key_note="%s"', $entity->getKey()));
+    }
+
+    public static function AddressToNote(string $URL): string
+    {
+        $lower = strtolower(trim($URL, '/'));
+        return str_replace('/', ':', $lower);
+    }
+
+    public static function NoteToAddress(string $keyAtom): string
+    {
+        return '/' . str_replace(':', '/', $keyAtom);
+    }
+}

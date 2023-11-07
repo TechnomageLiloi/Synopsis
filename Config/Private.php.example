@@ -7,7 +7,7 @@ use Liloi\Config\Sparkle;
 define('ROOT_URL', '');
 
 // Database table-name prefix.
-(function () {Pool::getSingleton()->set(new Sparkle('table', function () {return 'synopsis_test';}));})();
+(function () {Pool::getSingleton()->set(new Sparkle('table', function () {return 'synopsis_notes';}));})();
 
 (function() {
     // Database connection parameters.
