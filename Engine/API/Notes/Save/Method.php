@@ -14,13 +14,12 @@ class Method extends SuperMethod
 {
     public static function execute(): Response
     {
-        $keyAtom = self::getParameter('key_atom');
+        $keyAtom = self::getParameter('key_note');
         $entity = NotesManager::load($keyAtom);
 
         $entity->setTitle(self::getParameter('title'));
         $entity->setStatus(self::getParameter('status'));
         $entity->setNote(self::getParameter('note'));
-        $entity->setPosition(self::getParameter('position'));
 
         $entity->save();
 

@@ -22,7 +22,7 @@ class Entity extends AbstractEntity
 {
     public function getKey(): string
     {
-        return $this->getField('key_atom');
+        return $this->getField('key_note');
     }
 
     public function parseNote(): string
@@ -48,5 +48,36 @@ class Entity extends AbstractEntity
     public function getUrl(): string
     {
         return Manager::NoteToAddress($this->getKey());
+    }
+
+    public function getSeeds(): string
+    {
+        $rid_full = $this->getKey();
+        $rid = explode(':', $rid_full);
+
+        $seeds = [];
+
+        while(count($rid) > 0)
+        {
+            $rid_seed = implode(':', $rid);
+
+            if($rid_seed == $rid_full)
+            {
+                $seed = ucfirst(str_replace('-', ' ', end($rid)));
+            }
+            else
+            {
+                $seed = sprintf(
+                    '<a href="%s">%s</a>',
+                    Manager::NoteToAddress($rid_seed),
+                    ucfirst(str_replace('-', ' ', end($rid)))
+                );
+            }
+
+            array_unshift($seeds, $seed);
+            array_pop($rid);
+        }
+
+        return implode(' &#9654; ', $seeds);
     }
 }
