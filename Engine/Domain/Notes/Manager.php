@@ -20,13 +20,17 @@ class Manager extends DomainManager
     {
         $name = self::getTableName();
 
-        self::getAdapter()->insert($name, [
+        $row = [
             'key_note' => $keyNote,
             'title' => 'Enter the note title',
             'status' => Statuses::ENABLED,
             'note' => '// Enter the note',
             'position' => '1',
-        ]);
+        ];
+
+        self::getAdapter()->insert($name, $row);
+
+        return $row;
     }
 
     public static function load(string $keyNote): Entity
