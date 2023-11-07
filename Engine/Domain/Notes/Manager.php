@@ -65,11 +65,34 @@ class Manager extends DomainManager
     public static function AddressToNote(string $URL): string
     {
         $lower = strtolower(trim($URL, '/'));
-        return str_replace('/', ':', $lower);
+
+        if(in_array($lower, ['', 'root']))
+        {
+            return 'root';
+        }
+
+        return 'root:' . str_replace('/', ':', $lower);
     }
 
     public static function NoteToAddress(string $keyAtom): string
     {
-        return '/' . str_replace(':', '/', $keyAtom);
+        if($keyAtom === 'root')
+        {
+            return '/';
+        }
+
+        $lower = strtolower(str_replace('root:', '', $keyAtom));
+        return '/' . str_replace(':', '/', $lower);
+    }
+
+    public static function ridChange(string $ridOld, string $ridNew): void
+    {
+        $nameTable = self::getTableName();
+        self::getAdapter()->request(sprintf(
+            'update %s set key_note = "%s" where key_note = "%s"',
+            $nameTable,
+            $ridNew,
+            $ridOld
+        ));
     }
 }
