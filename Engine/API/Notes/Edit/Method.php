@@ -14,7 +14,7 @@ class Method extends SuperMethod
 {
     public static function execute(): Response
     {
-        $URL = $_SERVER['REQUEST_URI'];
+        $URL = self::getCurrentURL();
         $RID = NotesManager::AddressToNote($URL);
 
         $entity = NotesManager::load($RID);

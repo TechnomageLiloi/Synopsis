@@ -10,7 +10,7 @@ class Method extends SuperMethod
 {
     public static function execute(): Response
     {
-        $URL = $_SERVER['REQUEST_URI'];
+        $URL = self::getCurrentURL();
         $keyAtom = NotesManager::AddressToNote($URL);
         $entity = NotesManager::load($keyAtom);
 

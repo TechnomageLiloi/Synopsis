@@ -90,4 +90,14 @@ abstract class Method
     {
         static::$config = $config;
     }
+
+    /**
+     * Get current URL after {@link ROOT_URL} apply.
+     *
+     * @return string
+     */
+    public static function getCurrentURL(): string
+    {
+        return str_replace(ROOT_URL, '', $_SERVER['REQUEST_URI']);
+    }
 }

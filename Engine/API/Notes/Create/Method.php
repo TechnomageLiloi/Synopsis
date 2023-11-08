@@ -18,7 +18,7 @@ class Method extends SuperMethod
      */
     public static function execute(): Response
     {
-        $URL = $_SERVER['REQUEST_URI'];
+        $URL = self::getCurrentURL();
         $ridSuper = NotesManager::AddressToNote($URL);
         NotesManager::create($ridSuper);
         return new Response();
