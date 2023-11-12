@@ -98,4 +98,16 @@ class Manager extends DomainManager
             $ridOld
         ));
     }
+
+    public static function exportText(string $URL): string
+    {
+        $keyAtom = self::AddressToNote($URL);
+        $entity = self::load($keyAtom);
+
+        $export = preg_replace_callback('/\[(.*?)\]\((.*?)\)/', function ($matches) {
+            return self::exportText($matches[2]);
+        }, $entity->getNote());
+
+        return $export;
+    }
 }
