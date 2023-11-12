@@ -25,6 +25,8 @@ class Tree
         {
             $manager = new Manager();
 
+            $manager->add(new Method('Synopsis.Export.Text', '\Liloi\Synopsis\API\Export\Text\Method::execute'));
+
             $manager->add(new Method('Synopsis.Notes.Show', '\Liloi\Synopsis\API\Notes\Show\Method::execute'));
             $manager->add(new Method('Synopsis.Notes.Edit', '\Liloi\Synopsis\API\Notes\Edit\Method::execute'));
             $manager->add(new Method('Synopsis.Notes.Save', '\Liloi\Synopsis\API\Notes\Save\Method::execute'));

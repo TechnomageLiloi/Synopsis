@@ -15,12 +15,13 @@
 
         <script src="<?php echo ROOT_URL; ?>/Engine/API/Requests.js"></script>
         <script src="<?php echo ROOT_URL; ?>/Engine/API/Notes/Requests.js"></script>
+        <script src="<?php echo ROOT_URL; ?>/Engine/API/Export/Requests.js"></script>
 
         <title>Synopsis</title>
     </head>
     <body>
         <div id="head">
-            <!--<a href="javascript:void(0)" class="butn" onclick="Rune.Plan.show();">Plan</a>-->
+            <a href="javascript:void(0)" class="butn" onclick="Synopsis.Export.text();">Export: TXT</a>
         </div>
         <hr/>
         <div id="page">
