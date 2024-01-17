@@ -27,7 +27,15 @@ class Entity extends AbstractEntity
 
     public function parseNote(): string
     {
-        return Parser::parseString($this->getNote());
+        $urlRoot = ROOT_URL;
+        if($urlRoot !== '/')
+        {
+            $urlRoot .= '/';
+        }
+
+        return Parser::parseString(
+            str_replace('](', '](' . $urlRoot, $this->getNote())
+        );
     }
 
     public function getStatusTitle(): string
