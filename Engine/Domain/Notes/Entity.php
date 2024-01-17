@@ -60,6 +60,11 @@ class Entity extends AbstractEntity
 
     public function getSeeds(): string
     {
+        $urlRoot = ROOT_URL;
+        if ($urlRoot === '/') {
+            $urlRoot = '';
+        }
+
         $rid_full = $this->getKey();
         $rid = explode(':', $rid_full);
 
@@ -76,7 +81,8 @@ class Entity extends AbstractEntity
             else
             {
                 $seed = sprintf(
-                    '<a href="%s">%s</a>',
+                    '<a href="%s%s">%s</a>',
+                    $urlRoot,
                     Manager::NoteToAddress($rid_seed),
                     ucfirst(str_replace('-', ' ', end($rid)))
                 );
