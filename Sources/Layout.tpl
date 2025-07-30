@@ -6,7 +6,7 @@
         <script><?php echo file_get_contents(dirname(__DIR__) . '/vendor/technomage-liloi/rune-api/Client/API.js'); ?></script>
 
         <script><?php echo file_get_contents(dirname(__DIR__) . '/Sources/API/Requests.js'); ?></script>
-        <script><?php echo file_get_contents(dirname(__DIR__) . '/Sources/API/Laws/Requests.js'); ?></script>
+        <script><?php echo file_get_contents(dirname(__DIR__) . '/Sources/API/Book/Requests.js'); ?></script>
 
         <style><?php echo file_get_contents(__DIR__ . '/Style.css'); ?></style>
 
@@ -17,7 +17,7 @@
             <a class="butn" href="javascript:void(0)" onclick="window.location.reload();">Refresh</a>
         </div>
         <div id="page">
-            <script>Requests.Laws.show();</script>
+            <script>Requests.Book.show();</script>
         </div>
     </body>
 </html>

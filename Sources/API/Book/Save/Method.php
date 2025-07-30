@@ -1,9 +1,9 @@
 <?php
 
-namespace Liloi\Synopsis\API\Laws\Save;
+namespace Liloi\Synopsis\API\Book\Save;
 
 use Liloi\Synopsis\API\Method as SuperMethod;
-use Liloi\Synopsis\Domains\Laws\Manager as DiaryManager;
+use Liloi\Synopsis\Domains\Book\Manager as DiaryManager;
 
 class Method extends SuperMethod
 {

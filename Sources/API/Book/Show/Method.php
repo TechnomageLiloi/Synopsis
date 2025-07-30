@@ -1,9 +1,9 @@
 <?php
 
-namespace Liloi\Synopsis\API\Laws\Edit;
+namespace Liloi\Synopsis\API\Book\Show;
 
 use Liloi\Synopsis\API\Method as SuperMethod;
-use Liloi\Synopsis\Domains\Laws\Manager as DiaryManager;
+use Liloi\Synopsis\Domains\Book\Manager as DiaryManager;
 
 class Method extends SuperMethod
 {
@@ -12,7 +12,14 @@ class Method extends SuperMethod
      */
     public function execute(): array
     {
-        $entity = DiaryManager::load($_POST['parameters']['key_day']);
+        $entity = DiaryManager::loadCurrent();
+
+        if($entity === null)
+        {
+            return [
+                'render' => $this->render(__DIR__ . '/Create.tpl')
+            ];
+        }
 
         return [
             'render' => $this->render(__DIR__ . '/Template.tpl', [

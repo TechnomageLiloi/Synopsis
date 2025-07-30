@@ -1,4 +1,4 @@
-Requests.Laws = {
+Requests.Book = {
     create: function ()
     {
         if(!confirm('Are you sure?'))
@@ -6,10 +6,10 @@ Requests.Laws = {
             return;
         }
 
-        API.request('Laws.Create', {
+        API.request('Book.Create', {
             debug: false
         }, function (data) {
-            Requests.Laws.show();
+            Requests.Book.show();
         }, function () {
 
         });
@@ -17,7 +17,7 @@ Requests.Laws = {
 
     show: function ()
     {
-        API.request('Laws.Show', {
+        API.request('Book.Show', {
             debug: false
         }, function (data) {
             $('#page').html(data.render);
@@ -29,7 +29,7 @@ Requests.Laws = {
 
     edit: function (key_day)
     {
-        API.request('Laws.Edit', {
+        API.request('Book.Edit', {
             key_day: key_day
         }, function (data) {
             const wrap = $('#page');
@@ -48,12 +48,12 @@ Requests.Laws = {
         }
 
         const jq_block = $('#application-diary-edit');
-        API.request('Laws.Save', {
+        API.request('Book.Save', {
             key_day: key_day,
             data: jq_block.find('[name=data]').val(),
             program: jq_block.find('[name=program]').val()
         }, function (data) {
-            Requests.Laws.show();
+            Requests.Book.show();
         }, function () {
 
         });
