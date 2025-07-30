@@ -1,3 +1,5 @@
 /vendor/
 /composer.lock
 /Sandbox/
+/Config/Private.Battle.json
+/Config/Private.json
