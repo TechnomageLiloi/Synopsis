@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\Synopsis\Domains\Laws;
+namespace Liloi\Synopsis\Domains\Book;
 
 use Liloi\Stylo\Parser;
 use Liloi\Tools\Entity as AbstractEntity;
@@ -17,13 +17,13 @@ use Liloi\Tools\Entity as AbstractEntity;
 class Entity extends AbstractEntity
 {
     /**
-     * Gets `key_law` param.
+     * Gets `key_quest` param.
      *
      * @return string
      */
     public function getKey(): string
     {
-        return $this->getField('key_law');
+        return $this->getField('key_quest');
     }
 
     /**
@@ -47,7 +47,7 @@ class Entity extends AbstractEntity
     }
 
     /**
-     * Saves law.
+     * Saves quest.
      */
     public function save(): void
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Liloi\Synopsis\Domains\Laws;
+namespace Liloi\Synopsis\Domains\Book;
 
 use Liloi\Synopsis\Domains\Manager as DomainManager;
 
@@ -13,7 +13,7 @@ class Manager extends DomainManager
      */
     public static function getTableName(): string
     {
-        return self::getTablePrefix() . 'laws';
+        return self::getTablePrefix() . 'book';
     }
 
     public static function loadCollection(): Collection
@@ -21,7 +21,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
 
         $rows = self::getAdapter()->getArray(sprintf(
-            'select * from %s order by key_law desc limit 17;',
+            'select * from %s order by key_quest desc limit 17;',
             $name
         ));
 
@@ -46,7 +46,7 @@ class Manager extends DomainManager
         $name = self::getTableName();
 
         $row = self::getAdapter()->getRow(sprintf(
-            'select * from %s where key_law="%s";',
+            'select * from %s where key_quest="%s";',
             $name, $UID
         ));
 
@@ -78,9 +78,9 @@ class Manager extends DomainManager
     {
         $name = self::getTableName();
         $data = $entity->get();
-        unset($data['key_law']);
+        unset($data['key_quest']);
 
-        self::update($name, $data, sprintf('key_law="%s"', $entity->getKey()));
+        self::update($name, $data, sprintf('key_quest="%s"', $entity->getKey()));
     }
 
     /**
@@ -89,7 +89,7 @@ class Manager extends DomainManager
     public static function create(string $UID): Entity
     {
         $data = [
-            'key_law' => $UID,
+            'key_quest' => $UID,
             'program' => '-',
             'data' => '{}'
         ];
